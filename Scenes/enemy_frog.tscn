@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5k5upabtqbx1"]
+
+[ext_resource type="Script" path="res://Scenes/enemy_frog.gd" id="1_h5y0m"]
+[ext_resource type="Texture2D" uid="uid://d10s5vvd6qr5m" path="res://Sprites/Enemy/frog-idle.png" id="1_kkw4h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xhcba"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arume"]
+atlas = ExtResource("1_kkw4h")
+region = Rect2(0, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m12dl"]
+atlas = ExtResource("1_kkw4h")
+region = Rect2(35, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbjqs"]
+atlas = ExtResource("1_kkw4h")
+region = Rect2(70, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ui0h3"]
+atlas = ExtResource("1_kkw4h")
+region = Rect2(105, 0, 35, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r6ut2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arume")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m12dl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbjqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ui0h3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Frog" type="Area2D" groups=["Hurt"]]
+script = ExtResource("1_h5y0m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xhcba")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r6ut2")
+autoplay = "default"
+frame_progress = 0.211807
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dibncprbx4b4"]
+[gd_scene load_steps=6 format=3 uid="uid://dibncprbx4b4"]
 
 [ext_resource type="PackedScene" uid="uid://cprhiy7kycce3" path="res://Scenes/player.tscn" id="1_rn41t"]
 [ext_resource type="Texture2D" uid="uid://7tohnxlcm3xe" path="res://Sprites/Background/tileset.png" id="2_isip5"]
 [ext_resource type="PackedScene" uid="uid://cggmra57v6nnj" path="res://Scenes/gem.tscn" id="3_apnqp"]
-[ext_resource type="PackedScene" uid="uid://c5k5upabtqbx1" path="res://Scenes/enemy_frog.tscn" id="4_04ccr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1lft7"]
 texture = ExtResource("2_isip5")
@@ -201,66 +200,3 @@ layer_0/tile_data = PackedInt32Array(983043, 65536, 3, 983044, 458752, 7, 983045
 
 [node name="Gem" parent="." instance=ExtResource("3_apnqp")]
 position = Vector2(76, 84)
-
-[node name="Gem2" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(296, 163)
-
-[node name="Gem3" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(764, 344)
-
-[node name="Gem4" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(1303, 311)
-
-[node name="Gem5" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(1991, 38)
-
-[node name="Gem6" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(2118, 41)
-
-[node name="Gem7" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(2163, 199)
-
-[node name="Gem9" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(294, 207)
-
-[node name="Gem10" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(1086, 295)
-
-[node name="Gem11" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(449, 228)
-
-[node name="Gem12" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(2326, 72)
-
-[node name="Gem13" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(778, 209)
-
-[node name="Gem14" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(801, 190)
-
-[node name="Gem15" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(821, 170)
-
-[node name="Gem16" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(842, 154)
-
-[node name="Gem17" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(809, 344)
-
-[node name="Gem18" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(1772, 180)
-
-[node name="Gem19" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(1798, 153)
-
-[node name="Gem20" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(1821, 139)
-
-[node name="Frog" parent="." instance=ExtResource("4_04ccr")]
-position = Vector2(1697, 212)
-
-[node name="Gem8" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(508, 197)
-
-[node name="Gem21" parent="." instance=ExtResource("3_apnqp")]
-position = Vector2(674, 216)
