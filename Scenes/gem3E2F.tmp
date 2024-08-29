@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=3 uid="uid://cggmra57v6nnj"]
+
+[ext_resource type="Texture2D" uid="uid://d3ji7yh0mfv8m" path="res://Sprites/Pickups/gem.png" id="1_b2g78"]
+[ext_resource type="Script" path="res://Scenes/gem.gd" id="1_hcwcj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1p3j2"]
+atlas = ExtResource("1_b2g78")
+region = Rect2(0, 0, 15, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puy5y"]
+atlas = ExtResource("1_b2g78")
+region = Rect2(15, 0, 15, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4mag"]
+atlas = ExtResource("1_b2g78")
+region = Rect2(30, 0, 15, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhdjv"]
+atlas = ExtResource("1_b2g78")
+region = Rect2(45, 0, 15, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xws62"]
+atlas = ExtResource("1_b2g78")
+region = Rect2(60, 0, 15, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8utn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1p3j2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_puy5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4mag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhdjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xws62")
+}],
+"loop": false,
+"name": &"gem",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0nvuh"]
+radius = 7.0
+
+[sub_resource type="Animation" id="Animation_f6v6s"]
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["gem"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kjduo"]
+_data = {
+"gem": SubResource("Animation_f6v6s")
+}
+
+[node name="Gem" type="Area2D"]
+script = ExtResource("1_hcwcj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e8utn")
+animation = &"gem"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0nvuh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kjduo")
+}
+autoplay = "gem"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
