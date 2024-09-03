@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2omyifh01fep"]
+
+[ext_resource type="Script" path="res://Scenes/enemy_frog_jump.gd" id="1_34li5"]
+[ext_resource type="Texture2D" uid="uid://dley2cf28nvsa" path="res://Sprites/Enemy/frog-jump.png" id="1_yvod0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0uyl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k36hp"]
+atlas = ExtResource("1_yvod0")
+region = Rect2(0, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gyki"]
+atlas = ExtResource("1_yvod0")
+region = Rect2(35, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_top8k"]
+atlas = ExtResource("1_yvod0")
+region = Rect2(70, 0, 35, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_47a1r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k36hp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gyki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_top8k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="frog jump" type="CharacterBody2D" groups=["Hurt"]]
+script = ExtResource("1_34li5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u0uyl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.25, 0)
+scale = Vector2(0.985714, 1)
+sprite_frames = SubResource("SpriteFrames_47a1r")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

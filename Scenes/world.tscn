@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dibncprbx4b4"]
+[gd_scene load_steps=8 format=3 uid="uid://dibncprbx4b4"]
 
 [ext_resource type="PackedScene" uid="uid://cprhiy7kycce3" path="res://Scenes/player.tscn" id="1_rn41t"]
 [ext_resource type="Texture2D" uid="uid://7tohnxlcm3xe" path="res://Sprites/Background/tileset.png" id="2_isip5"]
 [ext_resource type="PackedScene" uid="uid://cggmra57v6nnj" path="res://Scenes/gem.tscn" id="3_apnqp"]
 [ext_resource type="PackedScene" uid="uid://c5k5upabtqbx1" path="res://Scenes/enemy_frog.tscn" id="4_04ccr"]
+[ext_resource type="PackedScene" uid="uid://b2omyifh01fep" path="res://Scenes/enemy_frog_jump.tscn" id="5_tpt4o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1lft7"]
 texture = ExtResource("2_isip5")
@@ -264,3 +265,6 @@ position = Vector2(508, 197)
 
 [node name="Gem21" parent="." instance=ExtResource("3_apnqp")]
 position = Vector2(674, 216)
+
+[node name="frog jump" parent="." instance=ExtResource("5_tpt4o")]
+position = Vector2(211, 213)
