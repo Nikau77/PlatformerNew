@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dibncprbx4b4"]
+[gd_scene load_steps=10 format=3 uid="uid://dibncprbx4b4"]
 
 [ext_resource type="PackedScene" uid="uid://cprhiy7kycce3" path="res://Scenes/player.tscn" id="1_rn41t"]
 [ext_resource type="Texture2D" uid="uid://7tohnxlcm3xe" path="res://Sprites/Background/tileset.png" id="2_isip5"]
 [ext_resource type="PackedScene" uid="uid://cggmra57v6nnj" path="res://Scenes/gem.tscn" id="3_apnqp"]
 [ext_resource type="PackedScene" uid="uid://c5k5upabtqbx1" path="res://Scenes/enemy_frog.tscn" id="4_04ccr"]
 [ext_resource type="PackedScene" uid="uid://b2omyifh01fep" path="res://Scenes/enemy_frog_jump.tscn" id="5_tpt4o"]
+[ext_resource type="Texture2D" uid="uid://c10yb0dry5lqp" path="res://Sprites/Background/back.png" id="6_0nsc3"]
+[ext_resource type="Texture2D" uid="uid://l6cynk386lrj" path="res://Sprites/Background/middle.png" id="7_0n8yy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1lft7"]
 texture = ExtResource("2_isip5")
@@ -268,3 +270,26 @@ position = Vector2(674, 216)
 
 [node name="frog jump" parent="." instance=ExtResource("5_tpt4o")]
 position = Vector2(211, 213)
+
+[node name="Parallax2D" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax2D"]
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D/ParallaxLayer"]
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 382.0
+offset_bottom = 239.0
+texture = ExtResource("6_0nsc3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Parallax2D2" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax2D2"]
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D2/ParallaxLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_0n8yy")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
